@@ -38,13 +38,11 @@ class Board
     nil
   end
 
-  #needs to be tested
-  def assign_num_adj_bombs(pos)
-    self[pos].num_adj_bombs = count_nearby_bombs(pos)
+  def assign_num_adj_bombs(*pos)
+    self[*pos].num_adj_bombs = count_nearby_bombs(pos)
   end
 
-  #needs to be tested
-  def count_nearby_bombs(*pos)
+  def count_nearby_bombs(pos)
     bomb_count = 0
     x, y = pos
     [-1,1].each do |i|
