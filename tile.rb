@@ -8,11 +8,12 @@ class Tile
   def initialize(bomb = false)
     @bomb = bomb
     @face_up = false
-    @num_adj_bombs = nil
+    @num_adj_bombs = 0
     @flagged = false
   end
 
   def to_s
+    return "*" unless face_up
     if @bomb
       ""
     else

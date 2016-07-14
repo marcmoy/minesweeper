@@ -26,10 +26,21 @@ class Board
     end
   end
 
+  def render
+    puts "  #{(0..size - 1).to_a.join(" ")}"
+    grid.each_with_index do |row, i|
+      tiles = row.map(&:to_s)
+      puts "#{i} #{tiles.join(" ")}"
+    end
+    nil
+  end
+
+  #needs to be tested
   def assign_num_adj_bombs(pos)
     self[pos].num_adj_bombs = count_nearby_bombs(pos)
   end
 
+  #needs to be tested
   def count_nearby_bombs(pos)
     bomb_count = 0
     x, y = *pos
@@ -42,8 +53,6 @@ class Board
 
     end
     bomb_count
-  end
-
   end
 
   def [](*pos)
