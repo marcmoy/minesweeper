@@ -1,5 +1,8 @@
 require_relative "tile"
 require "byebug"
+require_relative "monkeypatch"
+
+
 
 class Board
   attr_reader :size, :num_bombs
@@ -41,15 +44,15 @@ class Board
   end
 
   #needs to be tested
-  def count_nearby_bombs(pos)
+  def count_nearby_bombs(*pos)
     bomb_count = 0
-    x, y = *pos
+    x, y = pos
     [-1,1].each do |i|
 
-      bomb_count += 1 if grid[x + i, y].bomb && (x + i > 0)
-      bomb_count += 1 if grid[x, y + i].bomb && (y + i > 0)
-      bomb_count += 1 if grid[x + i, y + i].bomb && (x + i > 0) && (y + i > 0)
-      bomb_count += 1 if grid[x + i, y - i].bomb && (x + i > 0) && (y - i > 0)
+      bomb_count += 1 if self[x + i, y].bomb && (x + i >= 0)
+      bomb_count += 1 if self[x, y + i].bomb && (y + i >= 0)
+      bomb_count += 1 if self[x + i, y + i].bomb && (x + i >= 0) && (y + i >= 0)
+      bomb_count += 1 if self[x + i, y - i].bomb && (x + i >= 0) && (y - i >= 0)
 
     end
     bomb_count

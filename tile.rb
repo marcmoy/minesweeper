@@ -13,7 +13,7 @@ class Tile
   end
 
   def to_s
-    return "*" unless face_up
+    #return "*" unless face_up
     if @bomb
       ""
     else
