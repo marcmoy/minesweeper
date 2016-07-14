@@ -13,7 +13,9 @@ class Tile
   end
 
   def to_s
-    #return "*" unless face_up
+    return "*" unless face_up || flagged
+    return "F" if flagged && !face_up
+    
     if @bomb
       ""
     else
