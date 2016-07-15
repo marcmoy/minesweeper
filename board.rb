@@ -21,7 +21,7 @@ class Board
 
     grid.each_with_index do |row, i|
       row.each_with_index do |col, j|
-        self[i, j] = Tile.new
+        self[i, j] = Tile.new([i, j])
         self[i, j].bomb = true if bomb_pos.include?(tile_num)
 
         tile_num += 1
@@ -44,16 +44,24 @@ class Board
 
   def count_nearby_bombs(pos)
     bomb_count = 0
+
+    adjacent_tiles(pos).each { |tile| bomb_count += 1 if tile.bomb }
+    bomb_count
+  end
+
+  def adjacent_tiles(pos)
+    adj_tiles = []
     x, y = pos
+
     [-1,1].each do |i|
 
-      bomb_count += 1 if self[x + i, y].bomb && (x + i >= 0)
-      bomb_count += 1 if self[x, y + i].bomb && (y + i >= 0)
-      bomb_count += 1 if self[x + i, y + i].bomb && (x + i >= 0) && (y + i >= 0)
-      bomb_count += 1 if self[x + i, y - i].bomb && (x + i >= 0) && (y - i >= 0)
+      adj_tiles << self[x + i, y] if (x + i >= 0) && self[x + i, y] != nil
+      adj_tiles << self[x, y + i] if (y + i >= 0) && self[x, y + i] !=  nil
+      adj_tiles << self[x + i, y + i] if (x + i >= 0) && (y + i >= 0) && self[x + i, y + i] != nil
+      adj_tiles << self[x + i, y - i] if (x + i >= 0) && (y - i >= 0) && self[x + i, y - i] != nil
 
     end
-    bomb_count
+    adj_tiles
   end
 
   def [](*pos)

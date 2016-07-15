@@ -47,4 +47,32 @@ class MineSweeper
     input
   end
 
+  def process_input(input)
+    option, pos = input
+
+    option == :f ? process_flag(pos) : process_reveal(pos)
+  end
+
+  def process_flag(pos)
+    board[*pos].toggle_flag
+  end
+
+  def process_reveal(pos)
+    if board[*pos].bomb
+      game_over
+    else
+
+    end
+  end
+
+  def reveal_safe_tiles(pos)
+    tile = board[*pos]
+    tile.reveal
+    if tile.num_adj_bombs == 0
+      board.adjacent_tiles(pos).each do |adj_tile|
+        reveal_safe_tiles(adj_tile.pos)
+      end
+    end
+  end
+
 end
