@@ -30,20 +30,22 @@ class Board
   end
 
   def render
+    system("clear")
     puts "  #{(0..size - 1).to_a.join(" ")}"
     grid.each_with_index do |row, i|
       tiles = row.map(&:to_s)
-      puts "#{i} #{tiles.join(" ")}"
+      puts "#{i} #{tiles.join(" ".colorize(:background => :light_blue))}"
     end
     nil
   end
 
   def render_debug
     # render
+    system("clear")
     puts "  #{(0..size - 1).to_a.join(" ")}"
     grid.each_with_index do |row, i|
       tiles = row.map(&:to_s_debug)
-      puts "#{i} #{tiles.join(" ")}"
+      puts "#{i} #{tiles.join(" ".colorize(:background => :light_blue))}"
     end
     nil
   end

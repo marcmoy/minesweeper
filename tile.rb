@@ -14,13 +14,13 @@ class Tile
   end
 
   def to_s
-    return "*" unless face_up || flagged
-    return "F" if flagged && !face_up
+    return "*".colorize(:color => :black, :background => :light_blue) unless face_up || flagged
+    return "F".colorize(:color => :red, :background => :light_blue) if flagged && !face_up
 
     if @bomb
-      ""
+      "".colorize(:color => :black, :background => :red)
     else
-      num_adj_bombs == 0 ? "_" : num_adj_bombs.to_s
+      num_adj_bombs == 0 ? "_".colorize(:color => :black, :background => :light_blue) : num_adj_bombs.to_s.colorize(:color => :black, :background => :light_blue)
     end
   end
 
@@ -29,9 +29,9 @@ class Tile
     # return "F" if flagged && !face_up
 
     if @bomb
-      ""
+      "".colorize(:color => :black, :background => :red)
     else
-      num_adj_bombs == 0 ? "_" : num_adj_bombs.to_s
+      num_adj_bombs == 0 ? "_".colorize(:color => :black, :background => :light_blue) : num_adj_bombs.to_s.colorize(:color => :black, :background => :light_blue)
     end
   end
 

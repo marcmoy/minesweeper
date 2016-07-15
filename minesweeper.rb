@@ -103,3 +103,9 @@ class MineSweeper
   end
 
 end
+
+if __FILE__ == $PROGRAM_NAME
+  my_board = Board.new
+  my_game = MineSweeper.new(my_board)
+  my_game.run
+end
