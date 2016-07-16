@@ -12,7 +12,7 @@ class MineSweeper
 
   def run
     play_turn until game_lost || won?
-    board.render_debug
+    board.render_full_board
     print_result
   end
 

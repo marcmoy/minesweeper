@@ -2,8 +2,6 @@ require_relative "tile"
 require "byebug"
 require_relative "monkeypatch"
 
-
-
 class Board
   attr_reader :size, :num_bombs
   attr_accessor :grid
@@ -34,18 +32,17 @@ class Board
     puts "  #{(0..size - 1).to_a.join(" ")}"
     grid.each_with_index do |row, i|
       tiles = row.map(&:to_s)
-      puts "#{i} #{tiles.join(" ".colorize(:background => :light_blue))}"
+      puts "#{i} #{tiles.join(COLORTEXT[" "])}"
     end
     nil
   end
 
-  def render_debug
-    # render
+  def render_full_board
     system("clear")
     puts "  #{(0..size - 1).to_a.join(" ")}"
     grid.each_with_index do |row, i|
-      tiles = row.map(&:to_s_debug)
-      puts "#{i} #{tiles.join(" ".colorize(:background => :light_blue))}"
+      tiles = row.map(&:to_s_full)
+      puts "#{i} #{tiles.join(COLORTEXT[" "])}"
     end
     nil
   end
@@ -87,3 +84,7 @@ class Board
   end
 
 end
+
+COLORTEXT = Hash.new{|h,k,v| h[k] = k.to_s.colorize(:color => :black, :background => :light_blue)}
+COLORTEXT[:F] = "F".colorize(:color => :red, :background => :light_blue)
+COLORTEXT[:B] = "".colorize(:color => :black, :background => :red)
