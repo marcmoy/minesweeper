@@ -8,6 +8,7 @@ Created a ruby implementation of the game [Minesweeper][play-minesweeper] ([wiki
 <strong>To-do-list:</strong>
 
 - [ ] refactor
-- [ ] prevent user from entering 'stupid' formats
-- [ ] colorize numbers and grid to match real game
+- [x] prevent user from entering 'stupid' formats
+- [x] colorize numbers and grid to match real game
 - [ ] fill number of adjacent bombs to each tile even if it is face-down, so game-over rendering works
+- [ ] add save/load feature
