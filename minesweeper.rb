@@ -33,30 +33,14 @@ class MineSweeper
 
   def get_input
     input = nil
-
-    loop do
-      prompt
-
-      input = gets.chomp
-      next unless valid_entry?(input)
-
-      input = parse_input(input)
-
-      break if valid_move?(input)
-      prompt_try_again
-    end
-
-    input
-  end
-
-  def valid_entry?(input)
     begin
-      parse_input(input)
-      true
+      prompt
+      input = parse_input(gets.chomp)
     rescue
       prompt_try_again
-      false
+      retry
     end
+    input
   end
 
   def parse_input(str)
@@ -66,24 +50,18 @@ class MineSweeper
   end
 
   def valid_move?(move)
-    begin
-      option, pos = move
+    option, pos = move
 
-      if [:f,:r].include?(option) &&
-        pos.all?{|n| n.between?(0,board.size - 1)}
+    if [:f,:r].include?(option) &&
+      pos.all?{|n| n.between?(0,board.size - 1)}
 
-        return true unless board[*pos].face_up
-      end
-      false
-
-    rescue
-      false
+      return true unless board[*pos].face_up
     end
+    false
   end
 
   def process_input(input)
     option, pos = input
-
     option == :f ? process_flag(pos) : process_reveal(pos)
   end
 
