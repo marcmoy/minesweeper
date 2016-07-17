@@ -4,21 +4,13 @@ board: !ruby/object:Board
   num_bombs: 10
   grid:
   - - !ruby/object:Tile
-      bomb: false
-      face_up: true
+      bomb: true
+      face_up: false
       num_adj_bombs: 0
       flagged: false
       pos:
       - 0
       - 0
-    - !ruby/object:Tile
-      bomb: false
-      face_up: true
-      num_adj_bombs: 0
-      flagged: false
-      pos:
-      - 0
-      - 1
     - !ruby/object:Tile
       bomb: false
       face_up: true
@@ -26,10 +18,18 @@ board: !ruby/object:Board
       flagged: false
       pos:
       - 0
+      - 1
+    - !ruby/object:Tile
+      bomb: false
+      face_up: true
+      num_adj_bombs: 0
+      flagged: false
+      pos:
+      - 0
       - 2
     - !ruby/object:Tile
-      bomb: true
-      face_up: false
+      bomb: false
+      face_up: true
       num_adj_bombs: 0
       flagged: false
       pos:
@@ -38,7 +38,7 @@ board: !ruby/object:Board
     - !ruby/object:Tile
       bomb: false
       face_up: true
-      num_adj_bombs: 1
+      num_adj_bombs: 0
       flagged: false
       pos:
       - 0
@@ -50,6 +50,150 @@ board: !ruby/object:Board
       flagged: false
       pos:
       - 0
+      - 5
+    - !ruby/object:Tile
+      bomb: false
+      face_up: true
+      num_adj_bombs: 0
+      flagged: false
+      pos:
+      - 0
+      - 6
+    - !ruby/object:Tile
+      bomb: false
+      face_up: true
+      num_adj_bombs: 0
+      flagged: false
+      pos:
+      - 0
+      - 7
+    - !ruby/object:Tile
+      bomb: false
+      face_up: true
+      num_adj_bombs: 0
+      flagged: false
+      pos:
+      - 0
+      - 8
+  - - !ruby/object:Tile
+      bomb: false
+      face_up: false
+      num_adj_bombs: 0
+      flagged: false
+      pos:
+      - 1
+      - 0
+    - !ruby/object:Tile
+      bomb: false
+      face_up: true
+      num_adj_bombs: 1
+      flagged: false
+      pos:
+      - 1
+      - 1
+    - !ruby/object:Tile
+      bomb: false
+      face_up: true
+      num_adj_bombs: 0
+      flagged: false
+      pos:
+      - 1
+      - 2
+    - !ruby/object:Tile
+      bomb: false
+      face_up: true
+      num_adj_bombs: 0
+      flagged: false
+      pos:
+      - 1
+      - 3
+    - !ruby/object:Tile
+      bomb: false
+      face_up: true
+      num_adj_bombs: 1
+      flagged: false
+      pos:
+      - 1
+      - 4
+    - !ruby/object:Tile
+      bomb: false
+      face_up: true
+      num_adj_bombs: 1
+      flagged: false
+      pos:
+      - 1
+      - 5
+    - !ruby/object:Tile
+      bomb: false
+      face_up: true
+      num_adj_bombs: 1
+      flagged: false
+      pos:
+      - 1
+      - 6
+    - !ruby/object:Tile
+      bomb: false
+      face_up: true
+      num_adj_bombs: 0
+      flagged: false
+      pos:
+      - 1
+      - 7
+    - !ruby/object:Tile
+      bomb: false
+      face_up: true
+      num_adj_bombs: 0
+      flagged: false
+      pos:
+      - 1
+      - 8
+  - - !ruby/object:Tile
+      bomb: false
+      face_up: false
+      num_adj_bombs: 0
+      flagged: false
+      pos:
+      - 2
+      - 0
+    - !ruby/object:Tile
+      bomb: false
+      face_up: true
+      num_adj_bombs: 1
+      flagged: false
+      pos:
+      - 2
+      - 1
+    - !ruby/object:Tile
+      bomb: false
+      face_up: true
+      num_adj_bombs: 1
+      flagged: false
+      pos:
+      - 2
+      - 2
+    - !ruby/object:Tile
+      bomb: false
+      face_up: true
+      num_adj_bombs: 1
+      flagged: false
+      pos:
+      - 2
+      - 3
+    - !ruby/object:Tile
+      bomb: false
+      face_up: true
+      num_adj_bombs: 1
+      flagged: false
+      pos:
+      - 2
+      - 4
+    - !ruby/object:Tile
+      bomb: true
+      face_up: false
+      num_adj_bombs: 0
+      flagged: false
+      pos:
+      - 2
       - 5
     - !ruby/object:Tile
       bomb: false
@@ -57,71 +201,71 @@ board: !ruby/object:Board
       num_adj_bombs: 2
       flagged: false
       pos:
-      - 0
+      - 2
       - 6
+    - !ruby/object:Tile
+      bomb: false
+      face_up: true
+      num_adj_bombs: 1
+      flagged: false
+      pos:
+      - 2
+      - 7
+    - !ruby/object:Tile
+      bomb: false
+      face_up: true
+      num_adj_bombs: 1
+      flagged: false
+      pos:
+      - 2
+      - 8
+  - - !ruby/object:Tile
+      bomb: false
+      face_up: false
+      num_adj_bombs: 0
+      flagged: false
+      pos:
+      - 3
+      - 0
+    - !ruby/object:Tile
+      bomb: false
+      face_up: false
+      num_adj_bombs: 0
+      flagged: false
+      pos:
+      - 3
+      - 1
     - !ruby/object:Tile
       bomb: true
       face_up: false
       num_adj_bombs: 0
       flagged: false
       pos:
-      - 0
-      - 7
+      - 3
+      - 2
     - !ruby/object:Tile
       bomb: false
       face_up: false
       num_adj_bombs: 0
       flagged: false
       pos:
-      - 0
-      - 8
-  - - !ruby/object:Tile
-      bomb: false
-      face_up: true
-      num_adj_bombs: 0
-      flagged: false
-      pos:
-      - 1
-      - 0
-    - !ruby/object:Tile
-      bomb: false
-      face_up: true
-      num_adj_bombs: 0
-      flagged: false
-      pos:
-      - 1
-      - 1
-    - !ruby/object:Tile
-      bomb: false
-      face_up: true
-      num_adj_bombs: 1
-      flagged: false
-      pos:
-      - 1
-      - 2
-    - !ruby/object:Tile
-      bomb: false
-      face_up: true
-      num_adj_bombs: 1
-      flagged: false
-      pos:
-      - 1
+      - 3
       - 3
     - !ruby/object:Tile
       bomb: false
-      face_up: true
-      num_adj_bombs: 1
-      flagged: false
-      pos:
-      - 1
-      - 4
-    - !ruby/object:Tile
-      bomb: false
-      face_up: true
+      face_up: false
       num_adj_bombs: 0
       flagged: false
       pos:
-      - 1
+      - 3
+      - 4
+    - !ruby/object:Tile
+      bomb: false
+      face_up: false
+      num_adj_bombs: 0
+      flagged: false
+      pos:
+      - 3
       - 5
     - !ruby/object:Tile
       bomb: false
@@ -129,154 +273,10 @@ board: !ruby/object:Board
       num_adj_bombs: 2
       flagged: false
       pos:
-      - 1
+      - 3
       - 6
     - !ruby/object:Tile
       bomb: true
-      face_up: false
-      num_adj_bombs: 0
-      flagged: false
-      pos:
-      - 1
-      - 7
-    - !ruby/object:Tile
-      bomb: false
-      face_up: false
-      num_adj_bombs: 0
-      flagged: false
-      pos:
-      - 1
-      - 8
-  - - !ruby/object:Tile
-      bomb: false
-      face_up: true
-      num_adj_bombs: 0
-      flagged: false
-      pos:
-      - 2
-      - 0
-    - !ruby/object:Tile
-      bomb: false
-      face_up: true
-      num_adj_bombs: 0
-      flagged: false
-      pos:
-      - 2
-      - 1
-    - !ruby/object:Tile
-      bomb: false
-      face_up: true
-      num_adj_bombs: 0
-      flagged: false
-      pos:
-      - 2
-      - 2
-    - !ruby/object:Tile
-      bomb: false
-      face_up: true
-      num_adj_bombs: 0
-      flagged: false
-      pos:
-      - 2
-      - 3
-    - !ruby/object:Tile
-      bomb: false
-      face_up: true
-      num_adj_bombs: 0
-      flagged: false
-      pos:
-      - 2
-      - 4
-    - !ruby/object:Tile
-      bomb: false
-      face_up: true
-      num_adj_bombs: 0
-      flagged: false
-      pos:
-      - 2
-      - 5
-    - !ruby/object:Tile
-      bomb: false
-      face_up: true
-      num_adj_bombs: 1
-      flagged: false
-      pos:
-      - 2
-      - 6
-    - !ruby/object:Tile
-      bomb: false
-      face_up: false
-      num_adj_bombs: 0
-      flagged: false
-      pos:
-      - 2
-      - 7
-    - !ruby/object:Tile
-      bomb: false
-      face_up: false
-      num_adj_bombs: 0
-      flagged: false
-      pos:
-      - 2
-      - 8
-  - - !ruby/object:Tile
-      bomb: false
-      face_up: true
-      num_adj_bombs: 0
-      flagged: false
-      pos:
-      - 3
-      - 0
-    - !ruby/object:Tile
-      bomb: false
-      face_up: true
-      num_adj_bombs: 0
-      flagged: false
-      pos:
-      - 3
-      - 1
-    - !ruby/object:Tile
-      bomb: false
-      face_up: true
-      num_adj_bombs: 0
-      flagged: false
-      pos:
-      - 3
-      - 2
-    - !ruby/object:Tile
-      bomb: false
-      face_up: true
-      num_adj_bombs: 0
-      flagged: false
-      pos:
-      - 3
-      - 3
-    - !ruby/object:Tile
-      bomb: false
-      face_up: true
-      num_adj_bombs: 0
-      flagged: false
-      pos:
-      - 3
-      - 4
-    - !ruby/object:Tile
-      bomb: false
-      face_up: true
-      num_adj_bombs: 0
-      flagged: false
-      pos:
-      - 3
-      - 5
-    - !ruby/object:Tile
-      bomb: false
-      face_up: true
-      num_adj_bombs: 1
-      flagged: false
-      pos:
-      - 3
-      - 6
-    - !ruby/object:Tile
-      bomb: false
       face_up: false
       num_adj_bombs: 0
       flagged: false
@@ -292,24 +292,24 @@ board: !ruby/object:Board
       - 3
       - 8
   - - !ruby/object:Tile
-      bomb: false
-      face_up: true
-      num_adj_bombs: 1
+      bomb: true
+      face_up: false
+      num_adj_bombs: 0
       flagged: false
       pos:
       - 4
       - 0
     - !ruby/object:Tile
       bomb: false
-      face_up: true
-      num_adj_bombs: 1
+      face_up: false
+      num_adj_bombs: 0
       flagged: false
       pos:
       - 4
       - 1
     - !ruby/object:Tile
       bomb: false
-      face_up: true
+      face_up: false
       num_adj_bombs: 0
       flagged: false
       pos:
@@ -317,7 +317,7 @@ board: !ruby/object:Board
       - 2
     - !ruby/object:Tile
       bomb: false
-      face_up: true
+      face_up: false
       num_adj_bombs: 0
       flagged: false
       pos:
@@ -326,14 +326,14 @@ board: !ruby/object:Board
     - !ruby/object:Tile
       bomb: false
       face_up: true
-      num_adj_bombs: 0
+      num_adj_bombs: 1
       flagged: false
       pos:
       - 4
       - 4
     - !ruby/object:Tile
       bomb: false
-      face_up: true
+      face_up: false
       num_adj_bombs: 0
       flagged: false
       pos:
@@ -341,14 +341,14 @@ board: !ruby/object:Board
       - 5
     - !ruby/object:Tile
       bomb: false
-      face_up: true
-      num_adj_bombs: 1
+      face_up: false
+      num_adj_bombs: 0
       flagged: false
       pos:
       - 4
       - 6
     - !ruby/object:Tile
-      bomb: true
+      bomb: false
       face_up: false
       num_adj_bombs: 0
       flagged: false
@@ -356,7 +356,7 @@ board: !ruby/object:Board
       - 4
       - 7
     - !ruby/object:Tile
-      bomb: true
+      bomb: false
       face_up: false
       num_adj_bombs: 0
       flagged: false
@@ -364,7 +364,7 @@ board: !ruby/object:Board
       - 4
       - 8
   - - !ruby/object:Tile
-      bomb: true
+      bomb: false
       face_up: false
       num_adj_bombs: 0
       flagged: false
@@ -373,39 +373,39 @@ board: !ruby/object:Board
       - 0
     - !ruby/object:Tile
       bomb: false
-      face_up: true
-      num_adj_bombs: 2
+      face_up: false
+      num_adj_bombs: 0
       flagged: false
       pos:
       - 5
       - 1
     - !ruby/object:Tile
       bomb: false
-      face_up: true
-      num_adj_bombs: 1
+      face_up: false
+      num_adj_bombs: 0
       flagged: false
       pos:
       - 5
       - 2
     - !ruby/object:Tile
       bomb: false
-      face_up: true
-      num_adj_bombs: 1
+      face_up: false
+      num_adj_bombs: 0
       flagged: false
       pos:
       - 5
       - 3
     - !ruby/object:Tile
       bomb: false
-      face_up: true
+      face_up: false
       num_adj_bombs: 0
       flagged: false
       pos:
       - 5
       - 4
     - !ruby/object:Tile
-      bomb: false
-      face_up: true
+      bomb: true
+      face_up: false
       num_adj_bombs: 0
       flagged: false
       pos:
@@ -413,24 +413,24 @@ board: !ruby/object:Board
       - 5
     - !ruby/object:Tile
       bomb: false
-      face_up: true
-      num_adj_bombs: 1
+      face_up: false
+      num_adj_bombs: 0
       flagged: false
       pos:
       - 5
       - 6
     - !ruby/object:Tile
       bomb: false
-      face_up: true
-      num_adj_bombs: 2
+      face_up: false
+      num_adj_bombs: 0
       flagged: false
       pos:
       - 5
       - 7
     - !ruby/object:Tile
       bomb: false
-      face_up: true
-      num_adj_bombs: 2
+      face_up: false
+      num_adj_bombs: 0
       flagged: false
       pos:
       - 5
@@ -452,7 +452,7 @@ board: !ruby/object:Board
       - 6
       - 1
     - !ruby/object:Tile
-      bomb: true
+      bomb: false
       face_up: false
       num_adj_bombs: 0
       flagged: false
@@ -461,15 +461,15 @@ board: !ruby/object:Board
       - 2
     - !ruby/object:Tile
       bomb: false
-      face_up: true
-      num_adj_bombs: 1
+      face_up: false
+      num_adj_bombs: 0
       flagged: false
       pos:
       - 6
       - 3
     - !ruby/object:Tile
       bomb: false
-      face_up: true
+      face_up: false
       num_adj_bombs: 0
       flagged: false
       pos:
@@ -477,7 +477,7 @@ board: !ruby/object:Board
       - 4
     - !ruby/object:Tile
       bomb: false
-      face_up: true
+      face_up: false
       num_adj_bombs: 0
       flagged: false
       pos:
@@ -485,7 +485,7 @@ board: !ruby/object:Board
       - 5
     - !ruby/object:Tile
       bomb: false
-      face_up: true
+      face_up: false
       num_adj_bombs: 0
       flagged: false
       pos:
@@ -493,15 +493,15 @@ board: !ruby/object:Board
       - 6
     - !ruby/object:Tile
       bomb: false
-      face_up: true
+      face_up: false
       num_adj_bombs: 0
       flagged: false
       pos:
       - 6
       - 7
     - !ruby/object:Tile
-      bomb: false
-      face_up: true
+      bomb: true
+      face_up: false
       num_adj_bombs: 0
       flagged: false
       pos:
@@ -516,9 +516,9 @@ board: !ruby/object:Board
       - 7
       - 0
     - !ruby/object:Tile
-      bomb: true
-      face_up: false
-      num_adj_bombs: 0
+      bomb: false
+      face_up: true
+      num_adj_bombs: 1
       flagged: false
       pos:
       - 7
@@ -531,6 +531,38 @@ board: !ruby/object:Board
       pos:
       - 7
       - 2
+    - !ruby/object:Tile
+      bomb: true
+      face_up: false
+      num_adj_bombs: 0
+      flagged: false
+      pos:
+      - 7
+      - 3
+    - !ruby/object:Tile
+      bomb: false
+      face_up: false
+      num_adj_bombs: 0
+      flagged: false
+      pos:
+      - 7
+      - 4
+    - !ruby/object:Tile
+      bomb: false
+      face_up: false
+      num_adj_bombs: 0
+      flagged: false
+      pos:
+      - 7
+      - 5
+    - !ruby/object:Tile
+      bomb: true
+      face_up: false
+      num_adj_bombs: 0
+      flagged: false
+      pos:
+      - 7
+      - 6
     - !ruby/object:Tile
       bomb: false
       face_up: true
@@ -538,42 +570,10 @@ board: !ruby/object:Board
       flagged: false
       pos:
       - 7
-      - 3
-    - !ruby/object:Tile
-      bomb: false
-      face_up: true
-      num_adj_bombs: 1
-      flagged: false
-      pos:
-      - 7
-      - 4
-    - !ruby/object:Tile
-      bomb: false
-      face_up: true
-      num_adj_bombs: 0
-      flagged: false
-      pos:
-      - 7
-      - 5
-    - !ruby/object:Tile
-      bomb: false
-      face_up: true
-      num_adj_bombs: 0
-      flagged: false
-      pos:
-      - 7
-      - 6
-    - !ruby/object:Tile
-      bomb: false
-      face_up: true
-      num_adj_bombs: 0
-      flagged: false
-      pos:
-      - 7
       - 7
     - !ruby/object:Tile
       bomb: false
-      face_up: true
+      face_up: false
       num_adj_bombs: 0
       flagged: false
       pos:
@@ -588,7 +588,7 @@ board: !ruby/object:Board
       - 8
       - 0
     - !ruby/object:Tile
-      bomb: true
+      bomb: false
       face_up: false
       num_adj_bombs: 0
       flagged: false
@@ -596,7 +596,7 @@ board: !ruby/object:Board
       - 8
       - 1
     - !ruby/object:Tile
-      bomb: false
+      bomb: true
       face_up: false
       num_adj_bombs: 0
       flagged: false
@@ -604,7 +604,7 @@ board: !ruby/object:Board
       - 8
       - 2
     - !ruby/object:Tile
-      bomb: true
+      bomb: false
       face_up: false
       num_adj_bombs: 0
       flagged: false
@@ -613,15 +613,15 @@ board: !ruby/object:Board
       - 3
     - !ruby/object:Tile
       bomb: false
-      face_up: true
-      num_adj_bombs: 1
+      face_up: false
+      num_adj_bombs: 0
       flagged: false
       pos:
       - 8
       - 4
     - !ruby/object:Tile
       bomb: false
-      face_up: true
+      face_up: false
       num_adj_bombs: 0
       flagged: false
       pos:
@@ -629,7 +629,7 @@ board: !ruby/object:Board
       - 5
     - !ruby/object:Tile
       bomb: false
-      face_up: true
+      face_up: false
       num_adj_bombs: 0
       flagged: false
       pos:
@@ -637,7 +637,7 @@ board: !ruby/object:Board
       - 6
     - !ruby/object:Tile
       bomb: false
-      face_up: true
+      face_up: false
       num_adj_bombs: 0
       flagged: false
       pos:
@@ -645,11 +645,11 @@ board: !ruby/object:Board
       - 7
     - !ruby/object:Tile
       bomb: false
-      face_up: true
+      face_up: false
       num_adj_bombs: 0
       flagged: false
       pos:
       - 8
       - 8
 game_lost: false
-reveal_count: 59
+reveal_count: 27

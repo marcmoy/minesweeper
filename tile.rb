@@ -1,5 +1,3 @@
-require 'colorize'
-
 class Tile
 
   attr_reader :face_up, :flagged
