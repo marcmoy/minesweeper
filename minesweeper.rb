@@ -1,4 +1,5 @@
 require_relative 'board'
+require 'yaml'
 
 class MineSweeper
 
@@ -24,6 +25,8 @@ class MineSweeper
   def prompt
     puts "Enter position in 'f x,y' format to toggle flag."
     puts "Enter position in 'r x,y' format to reveal."
+    puts "Enter s to save current game."
+    puts "Enter l to load past game."
     print "<"
   end
 
@@ -44,16 +47,20 @@ class MineSweeper
       prompt_try_again
       retry
     end
+    save_game if input == "s"
+    load_game if input == "l"
     input
   end
 
   def parse_input(str)
+    return str if str == "s" || str == "l"
     option = str[0].downcase.to_sym
     pos = str.split(" ")[1].split(",").map(&:to_i)
     [option, pos]
   end
 
   def valid_move?(move)
+    return true if move == "s" || move == "l"
     option, pos = move
 
     if [:f,:r].include?(option) &&
@@ -103,6 +110,15 @@ class MineSweeper
     else
       puts "You lose!"
     end
+  end
+
+  def save_game
+    puts "Saved!"
+    File.write('saved_game', YAML.dump(self))
+  end
+
+  def load_game
+    YAML.load_file('saved_game').run
   end
 
 end
