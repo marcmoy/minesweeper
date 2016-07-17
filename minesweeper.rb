@@ -34,8 +34,12 @@ class MineSweeper
   def get_input
     input = nil
     begin
-      prompt
-      input = parse_input(gets.chomp)
+      loop do
+        prompt
+        input = parse_input(gets.chomp)
+        break if valid_move?(input)
+        prompt_try_again
+      end
     rescue
       prompt_try_again
       retry
