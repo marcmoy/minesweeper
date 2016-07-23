@@ -5,18 +5,19 @@ require 'byebug'
 
 class MineSweeper
 
-  attr_reader :board, :game_lost, :reveal_count, :display
+  attr_reader :board, :game_over, :reveal_count, :display
 
-  def initialize(board = Board.new)
+  def initialize(board)
     @board = board
-    @game_lost = false
+    @game_over = false
     @reveal_count = 0
     @display = Display.new(board)
   end
 
   def run
-    play_turn until game_lost || won?
+    play_turn until game_over || won?
     display.render(true)
+    print_result
   end
 
   def play_turn
@@ -27,20 +28,10 @@ class MineSweeper
     display.get_input
   end
 
-  def valid_move?(move)
-    return true if move == "s" || move == "l"
-    option, pos = move
-
-    if [:f,:r].include?(option) &&
-      pos.all?{|n| n.between?(0,board.size - 1)}
-
-      return true unless board[*pos].face_up
-    end
-    false
-  end
-
   def process_input(input)
     return if input.nil?
+    return save_game if input == "s"
+    return load_game if input == "l"
     option, pos = input
     option == :f ? process_flag(pos) : process_reveal(pos)
   end
@@ -51,7 +42,7 @@ class MineSweeper
 
   def process_reveal(pos)
     if board[*pos].bomb
-      @game_lost = true
+      @game_over = true
     else
       reveal_safe_tiles(pos)
     end
@@ -74,25 +65,60 @@ class MineSweeper
 
   def print_result
     if won?
-      puts "You win!"
+      puts "\nYou win!"
     else
-      puts "You lose!"
+      puts "\nYou lose!"
     end
   end
 
   def save_game
     puts "Saved!"
     File.write('saved_game', YAML.dump(self))
+    exit
   end
 
   def load_game
+    print "Loading last game"
+    sleep(0.5)
+    3.times{ print "."; sleep(1) }
     YAML.load_file('saved_game').run
   end
 
 end
 
+def get_level
+  loop do
+    print_game_levels
+    level = gets.chomp.to_i
+    return level if level.between?(1,3)
+    puts "Invalid entry! Enter 1, 2, or 3"
+    sleep(2)
+  end
+end
+
+def print_game_levels
+  system('clear')
+  puts "MineSweeper".underline
+  puts "Level 1: easy"
+  puts "Level 2: medium"
+  puts "Level 3: hard"
+  puts "What level would you like to play?"
+  print "<"
+end
+
 if __FILE__ == $PROGRAM_NAME
-  my_board = Board.new
-  my_game = MineSweeper.new(my_board)
-  my_game.run
+  level = get_level
+  board = nil
+  
+  case level
+  when 1
+    board = Board.new(9, 10)
+  when 2
+    board = Board.new(16, 40)
+  when 3
+    board = Board.new(32, 160)
+  end
+
+  game = MineSweeper.new(board)
+  game.run
 end

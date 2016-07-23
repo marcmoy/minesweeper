@@ -4,14 +4,8 @@ require 'byebug'
 module Cursorable
   KEYMAP = {
     " " => :space,
-    "h" => :left,
-    "j" => :down,
-    "k" => :up,
-    "l" => :right,
-    "w" => :up,
-    "a" => :left,
-    "s" => :down,
-    "d" => :right,
+    "s" => :save,
+    "l" => :load,
     "f" => :flag,
     "\t" => :tab,
     "\r" => :return,
@@ -47,6 +41,10 @@ module Cursorable
       board.debug_board
     when :flag
       [:f, @cursor_pos]
+    when :save
+      "s"
+    when :load
+      "l"
     when :return, :space
       [:r, @cursor_pos]
     when :left, :right, :up, :down

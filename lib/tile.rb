@@ -1,3 +1,5 @@
+require_relative 'colortext'
+
 class Tile
 
   attr_reader :face_up, :flagged
@@ -20,14 +22,7 @@ class Tile
     else
       num_adj_bombs == 0 ? COLORTEXT[:_] : COLORTEXT[num_adj_bombs]
     end
-  end
 
-  def to_s_full
-    if @bomb
-      COLORTEXT[:B]
-    else
-      num_adj_bombs == 0 ? COLORTEXT[:_] : COLORTEXT[num_adj_bombs]
-    end
   end
 
   def reveal

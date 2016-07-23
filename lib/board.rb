@@ -1,5 +1,4 @@
 require_relative 'tile'
-require_relative 'monkeypatch'
 require_relative 'colortext'
 
 class Board
@@ -47,17 +46,6 @@ class Board
       tiles = row.map(&:to_s)
       puts "#{i} #{tiles.join(COLORTEXT[" "])}"
     end
-    nil
-  end
-
-  def render_full_board
-    system("clear")
-    puts "  #{(0..size - 1).to_a.join(" ")}"
-    grid.each_with_index do |row, i|
-      tiles = row.map(&:to_s_full)
-      puts "#{i} #{tiles.join(COLORTEXT[" "])}"
-    end
-    nil
   end
 
   def assign_num_adj_bombs(*pos)
@@ -97,18 +85,6 @@ class Board
   end
 
 end
-
-#use these DELTAS in adjacent_tiles method. Pasted here for now.
-DELTAS = [
-    [-1, -1],
-    [-1,  0],
-    [-1,  1],
-    [ 0, -1],
-    [ 0,  1],
-    [ 1, -1],
-    [ 1,  0],
-    [ 1,  1]
-  ]
 
 class NilClass
 

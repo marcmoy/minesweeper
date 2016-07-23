@@ -1,12 +1,10 @@
 require 'colorize'
-
 require_relative 'board'
 require_relative 'cursorable'
 
 class Display
   include Cursorable
   CURSOR_COLOR = :blue
-  SELECTED_COLOR = :red
   BACKGROUND_COLOR = :light_white
 
   attr_reader :board, :cursor_pos, :selected_pos
@@ -17,24 +15,28 @@ class Display
     @selected_pos = nil
   end
 
-  def move(new_pos)
-    @cursor_pos = new_pos
-  end
-
-  def render(over = false)
+  def render(game_over = false)
     system('clear')
     0.upto(board.size - 1) do |row|
       str_row = ""
       0.upto(board.size - 1) do |col|
         color = BACKGROUND_COLOR
         color = CURSOR_COLOR if cursor_pos == [row, col]
-        color = SELECTED_COLOR if selected_pos == [row, col]
         tile = board.grid[row][col]
-        tile.reveal if over
+        tile.reveal if game_over
         str_row << " #{tile} ".colorize(background: color)
       end
       puts str_row
     end
+    print_instructions
+  end
+
+  def print_instructions
+    puts "\nKEY     FUNCTION".underline
+    puts "[enter] reaveal tile"
+    puts "[f]     toggle flag"
+    puts "[s]     save current game"
+    puts "[l]     load last saved game"
   end
 
 end
