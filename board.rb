@@ -11,6 +11,7 @@ class Board
     @num_bombs = num_bombs
     @grid = Array.new(size) { Array.new(size) }
     populate
+    assign_bombs
   end
 
   def populate
@@ -25,6 +26,18 @@ class Board
         tile_num += 1
       end
     end
+  end
+
+  def assign_bombs
+    grid.each_with_index do |row, i|
+      row.each_with_index do |col, j|
+        self[i, j].num_adj_bombs = count_nearby_bombs([i,j])
+      end
+    end
+  end
+
+  def in_bounds?(pos)
+    pos.all? { |x| x.between?(0, size - 1) }
   end
 
   def render
@@ -84,3 +97,15 @@ class Board
   end
 
 end
+
+#use these DELTAS in adjacent_tiles method. Pasted here for now.
+DELTAS = [
+    [-1, -1],
+    [-1,  0],
+    [-1,  1],
+    [ 0, -1],
+    [ 0,  1],
+    [ 1, -1],
+    [ 1,  0],
+    [ 1,  1]
+  ]
