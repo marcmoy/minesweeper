@@ -97,19 +97,32 @@ def get_level
 end
 
 def print_game_levels
-  system('clear')
-  puts "MineSweeper".underline
+  puts "\n"
   puts "Level 1: easy"
   puts "Level 2: medium"
   puts "Level 3: hard"
+  puts "\n"
   puts "What level would you like to play?"
   print "<"
 end
 
+def print_header
+    puts '    __  ___
+   /  |/  /_____  ___  ______      _____  ___  ____  _____
+  / /|_/ / / __ \/ _ \/ ___| | /| / / _ \/   \/ __ \/ ___/
+ / /  / / / / / /  __(__  )| |/ |/ /  __/ -- /  ___/ /
+/_/  /_/_/_/ /_/\___/____/ |__/|__/\___// __/ \___/_/
+                Developed by @MarcMoy  /_/'
+    puts "\n "
+    puts "Welcome to Minesweeper!".underline
+end
+
 if __FILE__ == $PROGRAM_NAME
+  system('clear')
+  print_header
   level = get_level
   board = nil
-  
+
   case level
   when 1
     board = Board.new(9, 10)
