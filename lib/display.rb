@@ -23,7 +23,10 @@ class Display
         color = BACKGROUND_COLOR
         color = CURSOR_COLOR if cursor_pos == [row, col]
         tile = board.grid[row][col]
-        tile.reveal if game_over
+        if game_over
+          tile.reveal
+          tile = COLORTEXT[:E] if tile.bomb
+        end
         str_row << " #{tile} ".colorize(background: color)
       end
       puts str_row
