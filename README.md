@@ -7,6 +7,8 @@ Created a ruby implementation of the game [Minesweeper][play-minesweeper] ([wiki
 [play-minesweeper]: http://minesweeperonline.com/#beginner
 [minesweeper-wiki]: http://en.wikipedia.org/wiki/Minesweeper_(Windows)
 
+![screen](./intro-screen.png)
+
 <strong>To-do-list:</strong>
 
 - [x] prevent user from entering incorrect formats
