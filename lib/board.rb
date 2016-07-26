@@ -39,15 +39,6 @@ class Board
     pos.all? { |x| x.between?(0, size - 1) }
   end
 
-  def render
-    system("clear")
-    puts "  #{(0..size - 1).to_a.join(" ")}"
-    grid.each_with_index do |row, i|
-      tiles = row.map(&:to_s)
-      puts "#{i} #{tiles.join(COLORTEXT[" "])}"
-    end
-  end
-
   def assign_num_adj_bombs(*pos)
     self[*pos].num_adj_bombs = count_nearby_bombs(pos)
   end
