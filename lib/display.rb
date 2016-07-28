@@ -13,25 +13,13 @@ class Display
     @board = board
     @cursor_pos = [0,0]
     @selected_pos = nil
+    @grid = board.grid
   end
 
   def render(game_over = false)
     system('clear')
-    0.upto(board.size - 1) do |row|
-      str_row = ""
-      0.upto(board.size - 1) do |col|
-        color = BACKGROUND_COLOR
-        color = CURSOR_COLOR if cursor_pos == [row, col]
-        tile = board.grid[row][col]
-        if game_over
-          tile.reveal
-          tile = COLORTEXT[:E] if tile.bomb
-        end
-        str_row << " #{tile} ".colorize(background: color)
-      end
-      puts str_row
+    @grid.each do |row|
     end
-    print_instructions
   end
 
   def print_instructions

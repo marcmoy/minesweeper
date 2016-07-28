@@ -10,44 +10,6 @@ class Board
     @num_bombs = num_bombs
     @grid = Array.new(size) { Array.new(size) }
     populate
-    assign_bombs
-  end
-
-  def populate
-    bomb_pos = (0..size ** 2 - 1).to_a.sample(num_bombs)
-    tile_num = 0
-
-    grid.each_with_index do |row, i|
-      row.each_with_index do |col, j|
-        self[i, j] = Tile.new([i, j])
-        self[i, j].bomb = true if bomb_pos.include?(tile_num)
-
-        tile_num += 1
-      end
-    end
-  end
-
-  def assign_bombs
-    grid.each_with_index do |row, i|
-      row.each_with_index do |col, j|
-        self[i, j].num_adj_bombs = count_nearby_bombs([i,j])
-      end
-    end
-  end
-
-  def in_bounds?(pos)
-    pos.all? { |x| x.between?(0, size - 1) }
-  end
-
-  def assign_num_adj_bombs(*pos)
-    self[*pos].num_adj_bombs = count_nearby_bombs(pos)
-  end
-
-  def count_nearby_bombs(pos)
-    bomb_count = 0
-
-    adjacent_tiles(pos).each { |tile| bomb_count += 1 if tile.bomb }
-    bomb_count
   end
 
   def adjacent_tiles(pos)
@@ -65,14 +27,54 @@ class Board
     adj_tiles
   end
 
-  def [](*pos)
+  def in_bounds?(pos)
+    pos.all? { |x| x.between?(0, size - 1) }
+  end
+
+  def [](pos)
     row, col = pos
     grid[row][col]
   end
 
-  def []=(*pos, value)
+  def []=(pos, value)
     row, col = pos
     grid[row][col] = value
+  end
+
+  private
+
+  def populate
+    random_bomb_indices = 0.upto(size ** 2).to_a.sample(num_bombs)
+    random_bomb_assigner = 0
+    bomb = false
+
+    0.upto(size - 1) do |i|
+      0.upto(size - 1) do |j|
+        pos = [i,j]
+        bomb = true if random_bomb_indices.include?(random_bomb_assigner)
+
+        self[pos] = Tile.new(pos, bomb)
+        random_bomb_assigner += 1
+        bomb = false
+      end
+    end
+
+    assign_num_adj_bombs
+  end
+
+  def assign_num_adj_bombs
+    0.upto(size - 1) do |i|
+      0.upto(size - 1) do |j|
+        pos = [i,j]
+        self[pos].num_adj_bombs = count_nearby_bombs(pos)
+      end
+    end
+  end
+
+  def count_nearby_bombs(pos)
+    bomb_count = 0
+    adjacent_tiles(pos).each { |tile| bomb_count += 1 if tile.bomb }
+    bomb_count
   end
 
 end
