@@ -11,21 +11,25 @@ class Display
 
   def initialize(board)
     @board = board
+    @grid = board.grid
     @cursor_pos = [0,0]
-    @prev_cursor = nil
+    @prev_cursor = [1,0]
     @x = board.x
     @y = board.y
   end
 
   def render(game_over = false)
     system('clear')
-    
-    0.upto(@x - 1) do |i|
-      0.upto(@y - 1) do |j|
-        end
-      end
+    set_cursor_background_color
+    @grid.each do |row|
+      puts row.join("")
     end
     print_instructions
+  end
+
+  def set_cursor_background_color
+    board[prev_cursor].background = :light_white
+    board[cursor_pos].background = :light_blue
   end
 
   def print_instructions
@@ -39,6 +43,9 @@ class Display
 end
 
 if __FILE__ == $PROGRAM_NAME
+  #render test for expert level board
+  #largest board possible
+
   b = Board.new(16, 30, 99)
   d = Display.new(b)
   while true
