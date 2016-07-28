@@ -14,7 +14,7 @@ Created a ruby implementation of the game [Minesweeper][play-minesweeper] ([wiki
 - [x] prevent user from entering incorrect formats
 - [x] colorize numbers and grid to match real game
 - [x] fill number of adjacent bombs to each tile even if it is face-down, so game-over rendering works
-- [ ] add save/load feature (needs to work for multiple levels)
-- [X] integrate emojis
+- [x] add save/load feature (needs to work for multiple levels)
+- [x] integrate emojis
 - [ ] modify specs
-- [ ] rendering is slow for hard level, need to refactor
+- [x] increase render speed for expert level board
