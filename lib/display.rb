@@ -18,7 +18,7 @@ class Display
     @y = board.y
   end
 
-  def render(game_over = false)
+  def render
     system('clear')
     set_cursor_background_color
     @grid.each do |row|
@@ -33,11 +33,11 @@ class Display
   end
 
   def print_instructions
-    puts "\nKEY     FUNCTION".underline
-    puts "[enter] reaveal tile"
-    puts "[f]     toggle flag"
-    puts "[s]     save current game"
-    puts "[l]     load last saved game"
+    puts "\n  KEY       FUNCTION  ".underline
+    puts "[enter]   reaveal tile"
+    puts "  [f]     toggle flag"
+    puts "  [s]      save game"
+    puts "  [l]      load game"
   end
 
 end
@@ -45,8 +45,7 @@ end
 if __FILE__ == $PROGRAM_NAME
   #render test for expert level board
   #largest board possible
-
-  b = Board.new(16, 30, 99)
+  b = Board.new(3)
   d = Display.new(b)
   while true
     d.render

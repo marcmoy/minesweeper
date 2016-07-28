@@ -3,7 +3,7 @@ require 'colorize'
 class Tile
 
   attr_reader :face_up, :flagged
-  attr_accessor :num_adj_bombs, :bomb, :pos, :cursor, :value, :background
+  attr_accessor :num_adj_bombs, :bomb, :pos, :cursor, :value, :background, :cursor
 
   def initialize(pos = [0, 0],bomb = false)
     @bomb = bomb
@@ -26,7 +26,13 @@ class Tile
 
   def reveal
     @face_up = true
-    @value = num_adj_bombs
+    self.toggle_flag
+
+    if @bomb
+      @value = :B
+    else
+      @value = num_adj_bombs
+    end
   end
 
   def toggle_flag
@@ -35,7 +41,11 @@ class Tile
     if @flagged
       @value = :F
     else
-      @value = num_adj_bombs
+      if face_up
+        @value = num_adj_bombs
+      else
+        @value = :*
+      end
     end
   end
 
@@ -43,6 +53,7 @@ class Tile
   COLORTEXT[:F] = " 🚩 ".colorize(:color => :red)
   COLORTEXT[:B] = " 💣 ".colorize(:color => :black)
   COLORTEXT[:E] = " 💥 ".colorize(:color => :black)
+  COLORTEXT[0] = " _ ".colorize(:color => :black)
   COLORTEXT[1] = " 1 ".colorize(:color => :blue)
   COLORTEXT[2] = " 2 ".colorize(:color => :green)
   COLORTEXT[3] = " 3 ".colorize(:color => :light_red)
