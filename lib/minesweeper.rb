@@ -90,9 +90,11 @@ class MineSweeper
 
   def load_game
     print "Loading last game"
-    sleep(0.5)
-    3.times{ sleep(1); print "." }
-    YAML.load_file("level_#{@level}_saved_game").run
+    3.times{ sleep(0.5); print "." }
+    loaded_game = YAML.load_file("level_#{@level}_saved_game")
+    @reveal_count = loaded_game.reveal_count
+    @board = loaded_game.board
+    @display = loaded_game.display
   end
 
   def get_level
@@ -104,7 +106,7 @@ class MineSweeper
       sleep(1.5)
     end
     print "loading game"
-    3.times{ sleep(1); print "." }
+    3.times{ sleep(0.5); print "." }
   end
 
   def print_header
@@ -116,7 +118,7 @@ class MineSweeper
     / /|_/ / / __ \/ _ \/ ___| | /| / / _ \/   \/ __ \/ ___/
    / /  / / / / / /  __(__  )| |/ |/ /  __/ -- /  ___/ /
   /_/  /_/_/_/ /_/\___/____/ |__/|__/\___// __/ \___/_/
-                  Developed by @MarcMoy  /_/'
+                  Developed by @MarcMoy /_/'
       puts "\n "
       puts "Welcome to Minesweeper!".underline
 
