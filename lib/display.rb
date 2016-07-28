@@ -7,19 +7,25 @@ class Display
   CURSOR_COLOR = :blue
   BACKGROUND_COLOR = :light_white
 
-  attr_reader :board, :cursor_pos, :selected_pos
+  attr_reader :board, :cursor_pos, :prev_cursor
 
   def initialize(board)
     @board = board
     @cursor_pos = [0,0]
-    @selected_pos = nil
-    @grid = board.grid
+    @prev_cursor = nil
+    @x = board.x
+    @y = board.y
   end
 
   def render(game_over = false)
     system('clear')
-    @grid.each do |row|
+    
+    0.upto(@x - 1) do |i|
+      0.upto(@y - 1) do |j|
+        end
+      end
     end
+    print_instructions
   end
 
   def print_instructions
@@ -33,7 +39,7 @@ class Display
 end
 
 if __FILE__ == $PROGRAM_NAME
-  b = Board.new
+  b = Board.new(16, 30, 99)
   d = Display.new(b)
   while true
     d.render
