@@ -1,6 +1,6 @@
 # Minesweeper
 
-Created a ruby implementation of the game [Minesweeper][play-minesweeper] ([wiki][minesweeper-wiki]).
+Created a ruby implementation of the game [Minesweeper][play-minesweeper] ([wiki][minesweeper-wiki]) to be played in the terminal.
 
 `ruby lib/minesweeper.rb`
 
