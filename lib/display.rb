@@ -20,9 +20,10 @@ class Display
 
   def render
     system('clear')
+    puts "\n"
     set_cursor_background_color
     @grid.each do |row|
-      puts row.join("")
+      puts "  " + row.join("")
     end
     print_instructions
   end
@@ -33,11 +34,12 @@ class Display
   end
 
   def print_instructions
-    puts "\n  KEY       FUNCTION  ".underline
-    puts "[enter]   reaveal tile"
-    puts "  [f]     toggle flag"
-    puts "  [s]      save game"
-    puts "  [l]      load game"
+    puts "\n   KEY       FUNCTION  ".underline
+    puts " [enter]   reaveal tile"
+    puts "   [f]     toggle flag"
+    puts "   [s]      save game"
+    puts "   [l]      load game"
+    puts "\n\n"
   end
 
 end
